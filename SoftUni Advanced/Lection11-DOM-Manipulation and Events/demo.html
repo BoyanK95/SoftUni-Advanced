@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO Manipulation</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+
+    <ul id="movie-list">
+        <li>The Matrix</li>
+
+    </ul>
+    
+
+    <script>
+        let ulList = document.getElementById('movie-list');
+        let newMovieLi = document.createElement('li');
+        let secondMoive = document.createElement('li');
+        let thirdMovie = document.createElement('li');
+
+        thirdMovie.textContent = 'Kids';
+        secondMoive.textContent = 'Saw';
+        newMovieLi.textContent = 'American pie';
+
+        let coppyElement = secondMoive.cloneNode(true);
+        coppyElement.textContent += ' II';
+
+
+        let secondCoppy = newMovieLi.cloneNode(true);
+        secondCoppy.textContent += ' 2'
+
+        ulList.appendChild(secondMoive);
+        ulList.prepend(newMovieLi);
+        ulList.appendChild(thirdMovie);
+        ulList.appendChild(coppyElement);
+        ulList.appendChild(secondCoppy)
+
+        
+ 
+    </script>
+</body>
+</html>

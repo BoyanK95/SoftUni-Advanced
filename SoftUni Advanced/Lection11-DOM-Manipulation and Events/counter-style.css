@@ -1,0 +1,10 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#number{
+    font-size: 25px;
+    font-weight: bold;
+}
