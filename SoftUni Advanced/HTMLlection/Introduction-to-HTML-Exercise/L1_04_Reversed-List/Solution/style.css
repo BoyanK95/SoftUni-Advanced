@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.groceryList{
+    background-color: #E6E5E5;
+    padding: 20px 30px;
+    margin-top: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.groceryList h3{
+    text-align: center;
+    color: #1F3D5E;
+    font-size: 28px;
+}
+
+.groceryList li {
+    border-bottom: 1px solid;
+    font-size: 18px;
+    margin: 6px;
+}

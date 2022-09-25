@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    First number: <input type="number" id="first" /> Second number;
+    <input type="number" id="second" />
+    <button onclick="sum()">Sum</button>
+    <div id="result">Result: ...</div>
+
+    <script>
+      function sum() {
+        let firtsNum = document.getElementById("first").value;
+        let secondNum = document.getElementById("second").value;
+
+        let result = Number(firtsNum) + Number(secondNum);
+
+        document.getElementById("result").textContent = `Result: ${result}`;
+      }
+    </script>
+
+  </body>
+</html>

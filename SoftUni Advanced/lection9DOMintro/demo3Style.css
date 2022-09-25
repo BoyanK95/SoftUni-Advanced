@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#main-heading{
+    font-weight: bolder;
+    color: red;
+    font-size: 40px;
+}
+.box{
+    background-color: aqua;
+    width: 450px;
+    height: 250px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 10px;
+}
+button{
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 5px;
+}

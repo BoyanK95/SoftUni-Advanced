@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo2</title>
+  </head>
+  <body>
+    <h1 id="heading">Hello I'm Adam Smith</h1>
+    <h2 id="secondHeader">It's nice to meet you</h2>
+    <button onclick="firstBtnClick()">First btn</button>
+    <button onclick="secondBtnClick()">Second btn</button>
+    <button onclick="changeSecondHeader()">Change Second-Header</button>
+
+
+    <ol>
+        <li>BMW 3</li>
+        <li>Mercedes S500</li>
+        <li>Audi Quatro</li>
+        <li id="stupidCar">VW Beatle</li>
+    </ol>
+
+    <button onclick="changeCar()">Change car</button>
+
+    <script>
+      function secondBtnClick() {
+        window.alert(`You clicked on the Second Button !`);
+      }
+    </script>
+    <script>
+        function changeSecondHeader(params) {
+            let secondHeader = document.getElementById('secondHeader');
+            secondHeader.innerHTML = 'You changed this <em>header</em>!'
+        }
+    </script>
+
+    <script src="demoDomApp.js"></script>
+  </body>
+</html>

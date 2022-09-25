@@ -1,0 +1,7 @@
+html body{
+    background-color: rgb(228, 237, 197);
+}
+section article{
+    display: flex;
+    justify-content: center;
+}
