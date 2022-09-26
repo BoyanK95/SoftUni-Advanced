@@ -4,7 +4,8 @@ function deleteByEmail() {
     let custumersEmails = document.querySelectorAll('tr td:nth-of-type(2)');
 
     let custumersArr = Array.from(custumersEmails)
-    let targetElement = custumersArr.find(x => x.textContent == emailInput.value);
+    let targetElement = custumersArr.find(x => x.textContent == emailInput.value.trim());
+    
     
     if (targetElement) {
         targetElement.parentNode.remove();
