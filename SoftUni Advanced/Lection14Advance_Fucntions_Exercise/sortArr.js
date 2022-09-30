@@ -5,7 +5,7 @@ function sortArr(arr, order) {
         arr.sort((a, b) => b - a)
         
     }
-    return arr
+    return arr 
 }
 
 sortArr([14, 7, 17, 6, 8], 'asc')
