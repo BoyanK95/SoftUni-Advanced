@@ -8,4 +8,5 @@ function getNumber() {
 }
 
 let number = getNumber()
-console.log(number);
+
+console.log('!!!');

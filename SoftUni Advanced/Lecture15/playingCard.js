@@ -43,7 +43,9 @@ function cardFactory(face, suit) {
   return card;
 }
 
-let card = cardFactory("A", "H");
+let card = cardFactory("A", "C");
+let card2 = cardFactory("K", "H");
 card.toString();
+card2.toString();
 // let newcard1 = cardFactory('1', 'C')
 // console.log(newcard1);
