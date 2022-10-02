@@ -3,10 +3,10 @@ const lookupChar = require('./charLookUp');
 
 
 describe(`lookupChar functions test`, () => {
-    it('Return char at index', ()=>{
+    it('Return char at index - not capital char', ()=>{
         assert(lookupChar('Love', 1)=== 'o');
     });
-    it('Return char at index', ()=>{
+    it('Return char at index - capital char', ()=>{
         assert(lookupChar('L', 0)=== 'L');
     });
     it('Index over the string length', ()=>{
