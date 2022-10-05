@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Demo</title>
+    <style>
+        .fancy-text{
+            font-size: 35px;
+            font-style: italic;
+            font-family:Arial, Helvetica, sans-serif;
+            color: red;
+        }
+        .hihglited{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <button id="toggleBtn">Toggle</button>
+        <button id="submitBtn" disabled>Send</button>
+
+    <script>
+        let divEl = document.createElement('div');
+        divEl.textContent = 'Some text here';
+        divEl.classList.add('fancy-text')
+        let rootEl = document.getElementById('root');
+        rootEl.appendChild(divEl);
+
+        divEl.addEventListener('mouseover', (e) => {
+            e.currentTarget.classList.add('hihglited');
+        })
+        divEl.addEventListener('mouseout', (e)=> {
+            e.currentTarget.classList.remove('hihglited');
+        })
+        let sumbmitBtn = document.getElementById('submitBtn');
+        setTimeout(()=> {
+            sumbmitBtn.removeAttribute('disabled')
+        }, 3000)
+
+        let toggleBtn = document.getElementById('toggleBtn');
+        toggleBtn.addEventListener('click', (e) =>{
+            if (sumbmitBtn.hasAttribute('disabled')) {
+                sumbmitBtn.removeAttribute('disabled');
+            }else{
+                sumbmitBtn.setAttribute('disabled', true)
+            }
+        })
+        
+    </script>
+</body>
+</html>
