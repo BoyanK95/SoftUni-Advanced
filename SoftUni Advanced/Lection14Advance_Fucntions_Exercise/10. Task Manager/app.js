@@ -30,7 +30,7 @@ function solve() {
 
     let htmlEl =  `<h3>${taskInput.value}</h3>`                   +
                     `<p>Description: ${descriptionInput.value}</p>` +
-                    `<p>Due date: ${dueDateInput.value}`            +
+                    `<p>Due Date: ${dueDateInput.value}`            +
                               buttons ;                              
                          
 
@@ -62,7 +62,7 @@ function solve() {
   function cmd() {
     return {
         start: function(e) {
-          inProgress.appendChild(e.currentTarget);
+          inProgress.children[1].appendChild(e.currentTarget);
           e.target.parentElement.remove()
           e.currentTarget.innerHTML += createPartialBtn({class:"red", text:"Delete"}, {class:"orange", text:"Finish"});
           
@@ -72,7 +72,7 @@ function solve() {
           e.currentTarget.remove();
         },
         finish: function(e) {
-          complete.appendChild(e.currentTarget);
+          complete.children[1].appendChild(e.currentTarget);
           e.target.parentElement.remove();         
         }
     }
