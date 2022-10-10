@@ -15,6 +15,11 @@ function solve() {
         let description = descriptionInput.value;
         let price = Number(priceInput.value)
 
+        modelInput.value = '';
+        descriptionInput.value = '';
+        priceInput.value = '';
+        yearInput.value = '';
+
         if (!model || !description) {
             return;
         }
@@ -29,9 +34,11 @@ function solve() {
         let actionsCellElement = document.createElement('td');
         let InfoBtn = document.createElement('button');
         let buyItNowBtn = document.createElement('button');
-        let contentsRowElement = document.createElement('tr')
-        let yearContentEl = document.createElement('td');
-        let descrContentEl = document.createElement('td');
+        let contentsRowElement = document.createElement('tr');
+        let yearContentElement = document.createElement('td');
+        let descriptionContentElement = document.createElement('td');
+        let totalPriceElement = document.querySelector('.total-price');
+
         
         InfoBtn.textContent = 'More Info';
         InfoBtn.classList.add('moreBtn')
@@ -40,11 +47,22 @@ function solve() {
 
         InfoBtn.addEventListener('click', (e)=> {
             if (e.currentTarget.textContent == 'More Info') {  
+                contentsRowElement.style.display = 'contents';
                 e.currentTarget.textContent = 'Less Info';
             } else {
+                contentsRowElement.style.display = 'none';
                 e.currentTarget.textContent = 'More Info';
             }
-        })
+        });
+
+        buyItNowBtn.addEventListener('click', (e)=>{
+            let currentTotalPrice = Number(totalPriceElement.textContent);
+            let totalPrice = currentTotalPrice + price;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+
+            rowEl.remove();
+            contentsRowElement.remove();
+        });
         
 
         modelCellEl.textContent = model
@@ -59,20 +77,19 @@ function solve() {
         rowEl.appendChild(priceCelEl);
         rowEl.appendChild(actionsCellElement);
 
-        yearContentEl.textContent = `Year: ${year}`;
-        descrContentEl.setAttribute('colspan', 3);
-        descrContentEl.textContent = `Description: ${description}`;
+        yearContentElement.textContent = `Year: ${year}`;
+        descriptionContentElement.setAttribute('colspan', 3);
+        descriptionContentElement.textContent = `Description: ${description}`;
 
         contentsRowElement.classList.add('hide');
-        contentsRowElement.style.display = 'content';
+        contentsRowElement.style.display = 'none';
+
+        
+        contentsRowElement.appendChild(yearContentElement);
+        contentsRowElement.appendChild(descriptionContentElement);
      
         furnitureListEl.appendChild(rowEl);
         furnitureListEl.appendChild(contentsRowElement);
-
-        
-        
-
-
         
     })
 }
