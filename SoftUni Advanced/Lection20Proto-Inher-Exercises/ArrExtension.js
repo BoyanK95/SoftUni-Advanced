@@ -3,16 +3,7 @@
         return this[this.length -1];
     };
     Array.prototype.skip = function (n) {
-        if (n < 0) {
-            n = 0;
-        }else if (n > this.length) {
-            n = this.length
-        }
-        let result = [];
-        for (let i = n; i < this.length; i++) {
-            result.push(this[i])
-        }
-        return result
+        return this.slice(n)
     }
 
     Array.prototype.take = function (n) {
