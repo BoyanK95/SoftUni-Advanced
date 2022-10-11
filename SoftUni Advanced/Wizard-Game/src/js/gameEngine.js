@@ -1,6 +1,12 @@
-function gameLoop() {
-    console.log('frame');
+function start(state, game) {
+    window.requestAnimationFrame(gameLoop.bind(null, state, game))
+    
+}
 
-    window.requestAnimationFrame(gameLoop)
+
+function gameLoop(state, game) {
+    console.log(state.player);
+
+    window.requestAnimationFrame(gameLoop.bind(null, state, game))
 
 }
