@@ -8,7 +8,7 @@ function start(state, game) {
 
 function gameLoop(state, game, timestamp) {
     const { wizard } = state;
-    const {wizardElement } = game
+    const {wizardElement } = game;
 
     modifyWizzardPosition(state, game);
 
@@ -18,9 +18,17 @@ function gameLoop(state, game, timestamp) {
         state.bugStats.nexSpawnTimestamp = timestamp + Math.random() * state.bugStats.maxSpawnInterval;
     }
 
-    //Render
+    //Render bugs
+    document.querySelectorAll('.bug').forEach(bug => {
+        let posX = parseInt(bug.style.left);
+
+        bug.style.left = posX - state.bugStats.speed + 'px';
+    });
+
+    //Render wizar
     wizardElement.style.left = wizard.posX + 'px';
     wizardElement.style.top = wizard.posY + 'px';
+
 
     window.requestAnimationFrame(gameLoop.bind(null, state, game))
 }
