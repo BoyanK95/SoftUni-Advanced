@@ -4,6 +4,10 @@ function initState() {
 
     const state = {
         player: 'Poko',
+        gameOver: false,
+        score: 0,
+        scoreRate: 1,
+        killScore: 1000,
         wizard: {
             width: 82,
             height: 100,
