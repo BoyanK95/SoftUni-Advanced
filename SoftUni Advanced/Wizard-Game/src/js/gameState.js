@@ -11,12 +11,18 @@ function initState() {
             posY: startY,
             speed: 10,
         },
+
         bugStats:{
             width:50,
             height: 50,
             nexSpawnTimestamp: 0,
             maxSpawnInterval: 1500,
             speed: 9,
+        },
+
+        fireball: {
+            width:20,
+            height:20,
         },
 
         keys: {
