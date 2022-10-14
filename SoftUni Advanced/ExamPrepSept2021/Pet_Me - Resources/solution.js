@@ -57,9 +57,9 @@ function solve() {
         let divEl = document.createElement('div')
         
         e.target.remove()
-        divEl.append(newOwnerInput)
-        divEl.append(newBtn)
-        rootEl.append(divEl)
+        divEl.appendChild(newOwnerInput)
+        divEl.appendChild(newBtn)
+        rootEl.appendChild(divEl)
         
         newBtn.addEventListener('click', adopt)
     }
