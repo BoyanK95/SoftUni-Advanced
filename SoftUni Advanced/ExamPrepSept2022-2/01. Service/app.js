@@ -1,12 +1,14 @@
 window.addEventListener("load", solve);
 
 function solve() {
-    document.querySelector('button[type="submit"]').addEventListener('click', createTask)
+    document.querySelector('button[type="submit"]').addEventListener('click', createTask);
     let productTypeInput = document.getElementById('type-product');
-    let descriptionInput = document.getElementById('description')
+    let descriptionInput = document.getElementById('description');
     let nameInput = document.getElementById('client-name');
     let phoneNumInput = document.getElementById('client-phone');
     let recivedOrdersSection = document.getElementById('received-orders')
+    const completeSection = document.getElementById('completed-orders');
+    const clearBtn = document.querySelector('.clear-btn').addEventListener('click', clear)
 
 
     function createTask(e) {
@@ -41,9 +43,11 @@ function solve() {
         let startRepairBtn = document.createElement('button')
         startRepairBtn.classList.add('start-btn')
         startRepairBtn.textContent = 'Start repair'
+        startRepairBtn.addEventListener('click', startRepair)
 
         let finishBtn = document.createElement('button');
         finishBtn.classList.add('finish-btn');
+        finishBtn.addEventListener('click', finishRepair)
         finishBtn.textContent = 'Finish repair';
         finishBtn.setAttribute('disabled', true);
 
@@ -53,5 +57,25 @@ function solve() {
         divContainer.appendChild(startRepairBtn);
         divContainer.appendChild(finishBtn);
         recivedOrdersSection.appendChild(divContainer);
+    }
+
+    function startRepair(e) {
+        let eBtn = e.currentTarget
+        eBtn.setAttribute('disabled', true)
+        e.currentTarget.parentElement.getElementsByClassName('finish-btn')[0].disabled = false
+    }
+
+    function finishRepair(e) {
+        let divEl = e.currentTarget.parentElement
+        completeSection.appendChild(divEl)
+        Array.from(divEl.querySelectorAll('button')).forEach(btn => {
+            btn.remove();
+        });
+    }
+    function clear(e) {
+        let divElArr = Array.from(e.currentTarget.parentElement.getElementsByClassName('container'))
+        divElArr.forEach(div => {
+            div.remove()
+        });
     }
 }
