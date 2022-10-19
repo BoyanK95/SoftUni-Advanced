@@ -89,7 +89,5 @@ function solve(){
        archiveOlRootSection.appendChild(liElement)
       liArr.sort((a, b)=> a.innerText > b.innerText?1:-1)
       articleEl.remove()
-      debugger
-      
    }
   }
