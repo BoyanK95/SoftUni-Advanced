@@ -6,7 +6,12 @@ function solution() {
   const giftNameInput = addGiftsSection.querySelector("input");
   const sentGifts = document.getElementsByClassName("card")[2];
   const sentGiftsUlRootEl = sentGifts.querySelector('ul')
+  const discardGiftsSection = document.getElementsByClassName("card")[3];
+  const discardUlRootEl = discardGiftsSection.querySelector('ul')
+  
   let listOfGiftsArr = [];
+  let sentGiftsArr = [];
+  let discardGiftArr = []
 
   addGitftBtn.addEventListener("click", addGift);
 
@@ -21,35 +26,52 @@ function solution() {
       .sort((a, b) => a.localeCompare(b))
       .forEach(t => html += `<li class="gift">${t}<button id="sendButton">Send</button><button id="discardButton">Discard</button></li>`)
     ulRootEl.innerHTML = html;
+    
 
     giftNameInput.value = "";
 
 
     const sendButton = document.querySelectorAll('#sendButton')
-    const discardButton = document.getElementById('discardButton')
+    const discardButton = document.querySelectorAll('#discardButton')
+    
     
     sendButton.forEach(button => {
         button.addEventListener('click', sendGift)
     });
-    discardButton.addEventListener('click', discardGift)
+    discardButton.forEach(button => {
+        button.addEventListener('click', discardGift)
+    });
   
     
   
     function sendGift(e) {
         let liElement = e.currentTarget.parentElement
         let nameOfGift = liElement.innerHTML.split('<')[0]
-        let rootLiEl = document.createElement('li')
-        rootLiEl.classList.add('gift')
-        rootLiEl.textContent = nameOfGift
-        sentGiftsUlRootEl.appendChild(rootLiEl)
+
+        let sentGiftsHtml = ''
+        sentGiftsArr.push(nameOfGift)
+        sentGiftsArr.sort((a, b) => a.localeCompare(b))
+        .forEach(t => sentGiftsHtml += `<li class="gift">${t}</li>`)
+
+        sentGiftsUlRootEl.innerHTML = sentGiftsHtml
+
         liElement.remove()
-      debugger
+        listOfGiftsArr = listOfGiftsArr.filter(x => x !== nameOfGift)
     }
   
-    function discardGift(e) {
-      console.log(e);
-      debugger
-    }
-  }
 
+  }
+    function discardGift(e) {
+        let liElement = e.currentTarget.parentElement
+        let nameOfGift = liElement.innerHTML.split('<')[0]
+
+        let discardGiftHtml = ''
+        discardGiftArr.push(nameOfGift)
+        discardGiftArr.sort((a, b) => a.localeCompare(b))
+        .forEach(t => discardGiftHtml += `<li class="gift">${t}</li>`)
+        discardUlRootEl.innerHTML = discardGiftHtml
+
+        liElement.remove()
+
+    }
 }
