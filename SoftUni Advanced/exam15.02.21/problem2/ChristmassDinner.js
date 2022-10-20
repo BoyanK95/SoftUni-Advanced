@@ -32,6 +32,27 @@ class ChristmasDinner {
     this.dishes.push(recipe)
     return `${recipe.recipeName} has been successfully cooked!`
   }
+
+  inviteGuests(name, dish){
+    let currentDish = this.dishes.find(d =>d.recipeName === dish)
+    let existingGuest = this.guests[name];
+
+    if (!currentDish) {
+        throw new Error("We do not have this dish")
+    }
+    if (existingGuest) {
+        throw new Error("This guest has already been invited")
+    }
+    this.guests[name] = currentDish
+    return `You have successfully invited ${name}!`
+  }
+  showAttendance(){
+    let output = [];
+    Object.entries(this.guests).forEach(g =>{
+        output.push(`${g[0]} will eat ${g[1].recipeName}, which consists of ${g[1].productsList.join(', ')}`)
+    })
+    return output.join('\n')
+  }
 }
 
 let dinner = new ChristmasDinner(300);
@@ -58,8 +79,8 @@ dinner.recipes({
     productsList: ['Beans', 'Peppers', 'Salt']
 });
 
-// dinner.inviteGuests('Ivan', 'Oshav');
-// dinner.inviteGuests('Petar', 'Folded cabbage leaves filled with rice');
-// dinner.inviteGuests('Georgi', 'Peppers filled with beans');
+dinner.inviteGuests('Ivan', 'Oshav');
+dinner.inviteGuests('Petar', 'Folded cabbage leaves filled with rice');
+dinner.inviteGuests('Georgi', 'Peppers filled with beans');
 
-// console.log(dinner.showAttendance());
+console.log(dinner.showAttendance());
